@@ -3,7 +3,7 @@ const cors = require("cors");
 
 const app = express();
 
-const contactController = require("./controllers/contactController");
+const contactController = require("./controllers/contact.controller");
 
 // Settings
 app.use(cors());
@@ -17,16 +17,16 @@ app.get("/", (req, res) => {
 });
 
 app
-  .route(" / api / contacts ")
-  .get(contactController.findA11)
+  .route("/api/contacts")
+  .get(contactController.findAll)
   .post(contactController.create)
   .delete(contactController.deleteAll);
 app
-  .route(" / api / contacts / favorite ")
+  .route("/api/contacts/favorite")
   .get(contactController.findAllFavorite);
 app
-  .route(" / api / contacts / : id ")
-  .get(contactController.findone)
+  .route("/api/contacts/:id")
+  .get(contactController.findOne)
   .put(contactController.update)
   .delete(contactController.delete);
 
